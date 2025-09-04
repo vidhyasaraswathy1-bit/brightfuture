@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bright Futures Tuition | Classes 5-10</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Custom styles and animations */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #F0F9FF; /* Light blue sky background */
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, .font-fredoka {
+            font-family: 'Fredoka One', cursive;
+        }
+
+        /* Gradient Text */
+        .gradient-text {
+            background: linear-gradient(45deg, #F97316, #EC4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Animated background shapes */
+        .shape {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.4);
+            z-index: 0;
+            animation: float 10s infinite ease-in-out alternate;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); }
+            100% { transform: translateY(-50px) rotate(360deg); }
+        }
+
+        /* Cartoon Animal Animations */
+        .animal {
+            position: absolute;
+            bottom: 10px;
+            width: 100px;
+            height: auto;
+            z-index: 10;
+            animation: run-across 20s linear infinite;
+        }
+
+        .animal.fox {
+            left: -150px;
+            animation-duration: 18s;
+            animation-delay: 2s;
+        }
+
+        .animal.lion {
+            left: -150px;
+            width: 120px;
+            animation-duration: 25s;
+        }
+        
+        .animal.giraffe {
+            left: -200px;
+            width: 150px;
+            animation-duration: 30s;
+            animation-delay: 5s;
+            bottom: 20px;
+        }
+
+        @keyframes run-across {
+            0% {
+                transform: translateX(0vw) scaleX(1);
+            }
+            49% {
+                transform: translateX(110vw) scaleX(1);
+            }
+            50% {
+                transform: translateX(110vw) scaleX(-1);
+            }
+            99% {
+                transform: translateX(0vw) scaleX(-1);
+            }
+            100% {
+                transform: translateX(0vw) scaleX(1);
+            }
+        }
+        
+        /* Floating books/pencils */
+        .floating-item {
+            position: absolute;
+            z-index: 0;
+            animation: gentle-float 6s ease-in-out infinite;
+        }
+        
+        @keyframes gentle-float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        /* Blackboard animation */
+        #chalk-text {
+            font-family: 'Fredoka One', cursive; /* A chalk-like font */
+            white-space: nowrap;
+            overflow: hidden;
+            width: 0;
+            animation: typing 3.5s steps(30, end) forwards, blink-caret .75s step-end infinite;
+            animation-delay: 1s;
+        }
+
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: white; }
+        }
+
+        /* Reveal on scroll */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- Background Animated Elements -->
+    <div class="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
+        <div class="shape" style="width: 100px; height: 100px; top: 10%; left: 5%; background-color: rgba(251, 191, 36, 0.4); animation-duration: 12s;"></div>
+        <div class="shape" style="width: 60px; height: 60px; top: 20%; left: 80%; background-color: rgba(59, 130, 246, 0.4); animation-duration: 8s;"></div>
+        <div class="shape" style="width: 80px; height: 80px; top: 70%; left: 15%; background-color: rgba(236, 72, 153, 0.4); animation-duration: 15s;"></div>
+        <div class="shape" style="width: 50px; height: 50px; top: 85%; left: 90%; background-color: rgba(34, 197, 94, 0.4); animation-duration: 10s;"></div>
+        <div class="shape" style="width: 120px; height: 120px; top: 50%; left: 50%; background-color: rgba(168, 85, 247, 0.3); animation-duration: 18s;"></div>
+        
+        <!-- Floating Items -->
+        <div class="floating-item" style="top: 15%; left: 20%; animation-delay: 1s;">
+            <svg class="w-16 h-16 text-blue-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z"></path></svg>
+        </div>
+        <div class="floating-item" style="top: 70%; left: 80%; animation-delay: 0.5s;">
+             <svg class="w-12 h-12 text-yellow-500 rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.5L15.232 5.232z"></path></svg>
+        </div>
+    </div>
+    
+    <!-- Cartoon Animals Layer -->
+    <div class="absolute top-0 left-0 w-full h-full overflow-hidden z-10 pointer-events-none">
+        <!-- SVG Fox -->
+        <svg viewBox="0 0 200 100" class="animal fox">
+            <path d="M10 90 C 20 70, 40 70, 50 90 L 150 90 C 160 70, 180 70, 190 90 L 190 95 L 10 95 Z" fill="#F97316"/>
+            <path d="M50 90 C 60 60, 90 60, 100 90" fill="#F97316"/>
+            <path d="M100 90 C 110 60, 140 60, 150 90" fill="#F97316"/>
+            <path d="M70 70 C 60 50, 80 40, 90 50 L 110 50 C 120 40, 140 50, 130 70 Z" fill="#F97316"/>
+            <circle cx="85" cy="60" r="5" fill="black"/>
+            <circle cx="115" cy="60" r="5" fill="black"/>
+            <path d="M95 70 C 100 75, 105 75, 110 70" fill="none" stroke="black" stroke-width="2"/>
+            <path d="M30 60 L 50 50 L 70 60 Z" fill="#F97316"/>
+            <path d="M170 60 L 150 50 L 130 60 Z" fill="#F97316"/>
+        </svg>
+        <!-- SVG Lion -->
+        <svg viewBox="0 0 200 120" class="animal lion">
+            <path d="M20 110 C 30 90, 50 90, 60 110 L 140 110 C 150 90, 170 90, 180 110 L 180 115 L 20 115 Z" fill="#FBBF24"/>
+            <circle cx="100" cy="60" r="40" fill="#FBBF24"/>
+            <path d="M70 30 L 60 10 L 80 20 Z M85 20 L 75 0 L 95 15 Z M100 15 L 90 -5 L 110 10 Z M115 20 L 105 0 L 125 15 Z M130 30 L 120 10 L 140 20 Z" fill="#F97316"/>
+            <circle cx="85" cy="55" r="6" fill="white"><circle cx="85" cy="55" r="3" fill="black"/></circle>
+            <circle cx="115" cy="55" r="6" fill="white"><circle cx="115" cy="55" r="3" fill="black"/></circle>
+            <path d="M95 70 L 105 70 L 100 80 Z" fill="#8D5524"/>
+            <path d="M180 110 C 190 90, 200 100, 195 70" stroke="#F97316" stroke-width="5" fill="none"/>
+        </svg>
+    </div>
+
+    <!-- Header -->
+    <header id="home" class="sticky top-0 z-50 bg-white/80 backdrop-blur-sm shadow-md">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <div class="text-2xl font-fredoka text-blue-600">Bright Futures</div>
+            <nav class="hidden md:flex space-x-8 items-center">
+                <a href="#home" class="text-gray-600 hover:text-blue-600 transition duration-300">Home</a>
+                <a href="#about" class="text-gray-600 hover:text-blue-600 transition duration-300">About</a>
+                <a href="#subjects" class="text-gray-600 hover:text-blue-600 transition duration-300">Subjects</a>
+                <a href="#fees" class="text-gray-600 hover:text-blue-600 transition duration-300">Fees</a>
+                <a href="https://forms.gle/JfMwdz8PbAh5jD5A6" target="_blank" class="bg-orange-500 text-white font-semibold px-5 py-2 rounded-full hover:bg-orange-600 transition-transform transform hover:scale-105 duration-300">Enroll Now</a>
+            </nav>
+            <button id="mobile-menu-button" class="md:hidden text-gray-700">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden px-6 pt-2 pb-4 space-y-2">
+            <a href="#home" class="block text-gray-600 hover:text-blue-600">Home</a>
+            <a href="#about" class="block text-gray-600 hover:text-blue-600">About</a>
+            <a href="#subjects" class="block text-gray-600 hover:text-blue-600">Subjects</a>
+            <a href="#fees" class="block text-gray-600 hover:text-blue-600">Fees</a>
+            <a href="https://forms.gle/JfMwdz8PbAh5jD5A6" target="_blank" class="block bg-orange-500 text-white text-center font-semibold mt-2 px-5 py-2 rounded-full hover:bg-orange-600">Enroll Now</a>
+        </div>
+    </header>
+
+    <main class="relative z-20">
+        <!-- Hero Section -->
+        <section class="min-h-screen flex items-center justify-center text-center bg-cover bg-center" style="background-image: url('https://placehold.co/1920x1080/F0F9FF/FFFFFF?text=');">
+            <div class="container mx-auto px-6">
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-4 reveal">
+                    Bright Futures Tuition
+                </h1>
+                <h2 class="text-3xl md:text-5xl font-bold mb-6 reveal">
+                    <span class="gradient-text">Classes 5–10 Starting from ₹350 per Session</span>
+                </h2>
+                <p class="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-8 reveal" style="transition-delay: 200ms;">
+                    Fun, engaging, and personalized learning for every child.
+                </p>
+                <a href="https://forms.gle/JfMwdz8PbAh5jD5A6" target="_blank" class="inline-block bg-pink-500 text-white font-bold text-xl px-10 py-4 rounded-full shadow-lg hover:bg-pink-600 transition-transform transform hover:scale-110 duration-300 reveal" style="transition-delay: 400ms;">
+                    Enroll Now! 👉
+                </a>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-20 bg-white">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-4xl font-bold mb-4 reveal gradient-text">How Our Classes Work</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto mb-12 reveal">
+                    We believe learning should be an adventure! Our classes are filled with interactive games, creative projects, and friendly competitions. Tutors are more like cool mentors who make even the toughest subjects easy and fun.
+                </p>
+                <div class="bg-gray-800 rounded-2xl shadow-2xl max-w-4xl mx-auto p-8 reveal">
+                    <div class="border-4 border-gray-600 rounded-lg p-4">
+                        <p id="chalk-text" class="text-white text-4xl border-r-4 border-white">Let’s Learn Together!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Subjects Covered Section -->
+        <section id="subjects" class="py-20">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-4xl font-bold mb-12 reveal gradient-text">Subjects We Cover</h2>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                    <!-- Mathematics -->
+                    <div class="p-6 bg-white rounded-2xl shadow-lg transform hover:-translate-y-2 transition-transform duration-300 reveal">
+                        <div class="bg-blue-100 w-24 h-24 rounded-full mx-auto flex items-center justify-center mb-4">
+                            <svg class="w-12 h-12 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M12 7h.01M15 7h.01M15 14h.01M18 10a6 6 0 11-12 0 6 6 0 0112 0z"></path></svg>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-2">Mathematics</h3>
+                        <p class="text-gray-500">Solving equations and exploring complex calculations.</p>
+                    </div>
+                    <!-- Physics -->
+                    <div class="p-6 bg-white rounded-2xl shadow-lg transform hover:-translate-y-2 transition-transform duration-300 reveal" style="transition-delay: 100ms;">
+                        <div class="bg-green-100 w-24 h-24 rounded-full mx-auto flex items-center justify-center mb-4">
+                            <svg class="w-12 h-12 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-2">Physics</h3>
+                        <p class="text-gray-500">Uncover the laws of motion, energy, and the universe.</p>
+                    </div>
+                    <!-- Chemistry -->
+                    <div class="p-6 bg-white rounded-2xl shadow-lg transform hover:-translate-y-2 transition-transform duration-300 reveal" style="transition-delay: 200ms;">
+                        <div class="bg-yellow-100 w-24 h-24 rounded-full mx-auto flex items-center justify-center mb-4">
+                             <svg class="w-12 h-12 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M5 3h14"></path>
+                                <path d="M5 3v15a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3"></path>
+                                <path d="M9 12h6"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-2">Chemistry</h3>
+                        <p class="text-gray-500">Mix elements and reactions in fun, safe experiments.</p>
+                    </div>
+                    <!-- Biology -->
+                    <div class="p-6 bg-white rounded-2xl shadow-lg transform hover:-translate-y-2 transition-transform duration-300 reveal" style="transition-delay: 300ms;">
+                        <div class="bg-purple-100 w-24 h-24 rounded-full mx-auto flex items-center justify-center mb-4">
+                            <svg class="w-12 h-12 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-2">Biology</h3>
+                        <p class="text-gray-500">Discover the secrets of life, from cells to ecosystems.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Choose Us? Section -->
+        <section id="why-us" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl font-bold text-center mb-12 reveal gradient-text">Why Choose Bright Futures?</h2>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="group p-8 bg-gradient-to-br from-orange-100 to-pink-100 rounded-2xl shadow-lg text-center transition-all duration-300 hover:shadow-2xl hover:scale-105 reveal">
+                        <div class="text-5xl mb-4 transform transition-transform duration-300 group-hover:rotate-12">🌟</div>
+                        <h3 class="text-2xl font-bold mb-2">Playful Learning</h3>
+                        <p class="text-gray-600">We use games and interactive methods to make learning exciting and memorable.</p>
+                    </div>
+                    <div class="group p-8 bg-gradient-to-br from-blue-100 to-green-100 rounded-2xl shadow-lg text-center transition-all duration-300 hover:shadow-2xl hover:scale-105 reveal" style="transition-delay: 200ms;">
+                        <div class="text-5xl mb-4 transform transition-transform duration-300 group-hover:-rotate-12">👩‍🏫</div>
+                        <h3 class="text-2xl font-bold mb-2">Expert Tutors</h3>
+                        <p class="text-gray-600">Our tutors are not just teachers; they're friendly mentors who inspire confidence.</p>
+                    </div>
+                    <div class="group p-8 bg-gradient-to-br from-yellow-100 to-purple-100 rounded-2xl shadow-lg text-center transition-all duration-300 hover:shadow-2xl hover:scale-105 reveal" style="transition-delay: 400ms;">
+                        <div class="text-5xl mb-4 transform transition-transform duration-300 group-hover:scale-125">🎯</div>
+                        <h3 class="text-2xl font-bold mb-2">Personalized Focus</h3>
+                        <p class="text-gray-600">We keep our batches small to ensure every child gets the attention they deserve.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Fee Info Section -->
+        <section id="fees" class="py-20">
+            <div class="container mx-auto px-6 text-center">
+                <div class="max-w-3xl mx-auto bg-white rounded-3xl p-10 shadow-xl border-4 border-yellow-300 reveal">
+                    <div class="text-6xl mb-4">💰</div>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">Affordable & Clear Pricing</h2>
+                    <p class="text-xl md:text-2xl text-gray-700 bg-yellow-200 rounded-full px-6 py-3 inline-block font-semibold">
+                        Classes 5–10, tuition sessions starting at just <span class="font-fredoka text-orange-600">₹350!</span>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-10">
+        <div class="container mx-auto px-6 text-center">
+            <h3 class="text-3xl font-fredoka mb-4">Ready to Start the Adventure?</h3>
+            <p class="mb-6">Join a community of happy learners and see the difference.</p>
+             <a href="https://forms.gle/JfMwdz8PbAh5jD5A6" target="_blank" class="inline-block bg-green-500 text-white font-bold text-xl px-10 py-4 rounded-full shadow-lg hover:bg-green-600 transition-transform transform hover:scale-110 duration-300">
+                Enroll Your Child Today!
+            </a>
+            <div class="mt-8 text-gray-400">
+                &copy; 2025 Bright Futures Tuition. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Scroll Reveal Animation
+        const revealElements = document.querySelectorAll('.reveal');
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        revealElements.forEach(el => {
+            revealObserver.observe(el);
+        });
+
+    </script>
+
+</body>
+</html>
