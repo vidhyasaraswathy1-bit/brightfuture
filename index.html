@@ -364,6 +364,27 @@
         });
 
     </script>
+<script>
+// Disable Right Click
+document.addEventListener("contextmenu", function(e){
+  e.preventDefault();
+  alert("Right-click is disabled on this website.");
+}, false);
+
+// Disable Inspect Element Shortcuts
+document.onkeydown = function(e) {
+  if (
+    e.keyCode == 123 || // F12
+    (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) || // Ctrl+Shift+I
+    (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) || // Ctrl+Shift+J
+    (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) // Ctrl+U (view source)
+  ) {
+    alert("Inspect shortcuts are disabled!");
+    return false;
+  }
+};
+</script>
 
 </body>
 </html>
+
